@@ -2,11 +2,12 @@
 Made with <a href="https://github.com/facebookincubator/create-react-app">Create React App</a> 
 Quick Overview
 
-npm install -g create-react-app
+-npm install -g create-react-app
 
-create-react-app my-dog
-cd my-dog/
-npm start
+-create-react-app my-dog
+-cd my-dog/
+-npm start
+
 Then open http://localhost:3000/ to see app.
 
 
