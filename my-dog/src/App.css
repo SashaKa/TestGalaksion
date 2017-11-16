@@ -22,14 +22,28 @@
   font-size: large;
 }
 .Dogs {
-  background-color: #b875c7;
-  width: 50%;
+  width: 35%;
   height: 100vh;
+  margin: auto;
+  margin: 3% auto;
 }
 .dogEntry {
   text-align: left;
   list-style: none;
-  padding-left: 15px;
+  line-height: 1.5;
+  font-size: 18px;
+}
+.SortBtn {
+      background-color: #ffffff;
+    padding: 15px 22px;
+    margin: 20px auto;
+    font-size: 20px;
+    border-radius: 10px;
+    border-color: #4eadad;
+}
+.SortBtn:hover {
+   border-color: #ffffff;
+    background-color: #4eadad;
 }
 @keyframes App-logo-spin {
   from {

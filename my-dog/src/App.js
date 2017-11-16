@@ -8,27 +8,45 @@ class App extends Component {
     this.state = {
       breeds: []
     }
+    this.btnSort = this.btnSort.bind(this)
   }
 
   componentDidMount() {
     fetch('https://dog.ceo/api/breeds/list')
       .then(response => response.json())
-      .then(({ message }) => this.setState({
-        breeds: message
-      }))
+      .then(({ message }) =>
+        this.setState({
+          breeds: message
+        })
+      )
   }
 
   render() {
-    return <div className="App">
+    const dogEntry = this.state.breeds
+    return (
+      <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Hello! Choose your Dog</h1>
         </header>
+        <button className="SortBtn" onClick={this.btnSort}>
+          Sort of z-a
+        </button>
         <div className="Dogs">
-          {this.state.breeds.map((breed, i) => 
-            (<li className="dogEntry" key={i}>{breed}</li>))}
+          {dogEntry.map((breed, i) => (
+            <li className="dogEntry" key={i}>
+              {breed}
+            </li>
+          ))}
         </div>
       </div>
+    )
+  }
+
+  btnSort(event) {
+    
+    console.log('click')
+    
   }
 }
 
