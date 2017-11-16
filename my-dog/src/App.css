@@ -33,17 +33,26 @@
   line-height: 1.5;
   font-size: 18px;
 }
-.SortBtn {
+.Btn-wrap {
+  display: flex;
+  justify-content: space-around;
+  margin: 3% auto;
+
+}
+.Sort-Btn, .Search-Input {
       background-color: #ffffff;
     padding: 15px 22px;
-    margin: 20px auto;
+   
     font-size: 20px;
     border-radius: 10px;
     border-color: #4eadad;
 }
-.SortBtn:hover {
+.Sort-Btn:hover {
    border-color: #ffffff;
     background-color: #4eadad;
+}
+.Search-Input {
+  
 }
 @keyframes App-logo-spin {
   from {

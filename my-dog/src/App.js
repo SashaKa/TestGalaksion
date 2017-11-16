@@ -12,6 +12,11 @@ class App extends Component {
       isToggleOn: true
     }
     this.handleClick = this.handleClick.bind(this)
+    
+    this.filterInput = {
+      search: ''
+    }
+    this.handleInput = this.sortByLetter.bind(this)
   }
 
   handleClick() {
@@ -19,6 +24,18 @@ class App extends Component {
       isToggleOn: !prevState.isToggleOn
     }))
     this.state.breeds.reverse()
+  }
+
+ sortByLetter(event) {
+    this.setState({ search: event.target.value })
+    this.state.breeds.filter(breed => {
+      return console.log("input")
+      
+    })
+
+   
+
+
   }
 
   componentDidMount() {
@@ -32,14 +49,19 @@ class App extends Component {
   }
 
   render() {
+   
+  
     return <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Hello! Choose your Dog</h1>
         </header>
-        <button onClick={this.handleClick} className="SortBtn">
-          {this.state.isToggleOn ? 'Sort of A-Z' : 'Sort of Z-A'}
-        </button>
+        <div className="Btn-wrap">
+          <button onClick={this.handleClick} className="Sort-Btn">
+            {this.state.isToggleOn ? 'Sort of A-Z' : 'Sort of Z-A'}
+          </button>
+          <input className="Search-Input" type="text" value={this.filterInput} onChange={this.handleInput} />
+        </div>
 
         <div className="Dogs">
           {this.state.breeds.map((breed, i) => (
@@ -50,8 +72,6 @@ class App extends Component {
         </div>
       </div>
   }
-
- 
 }
 
 export default App
