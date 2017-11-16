@@ -20,20 +20,23 @@
 
 .App-intro {
   font-size: large;
+  
 }
-.Dogs {
-  width: 35%;
-  height: 100vh;
-  margin: auto;
+.Entry-wrap {
+  display: flex;
+  justify-content: space-around;
   margin: 3% auto;
 }
+/* .Dogs-List{
+  margin: 3% 10%;
+} */
 .dogEntry {
   text-align: left;
   list-style: none;
   line-height: 1.5;
   font-size: 18px;
 }
-.Btn-wrap {
+.Controls-wrap {
   display: flex;
   justify-content: space-around;
   margin: 3% auto;
