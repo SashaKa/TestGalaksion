@@ -8,7 +8,17 @@ class App extends Component {
     this.state = {
       breeds: []
     }
-    this.btnSort = this.btnSort.bind(this)
+    this.btnSort = {
+      isToggleOn: true
+    }
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick() {
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
+    }))
+    this.state.breeds.reverse()
   }
 
   componentDidMount() {
@@ -22,32 +32,26 @@ class App extends Component {
   }
 
   render() {
-    const dogEntry = this.state.breeds
-    return (
-      <div className="App">
+    return <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Hello! Choose your Dog</h1>
         </header>
-        <button className="SortBtn" onClick={this.btnSort}>
-          Sort of z-a
+        <button onClick={this.handleClick} className="SortBtn">
+          {this.state.isToggleOn ? 'Sort of A-Z' : 'Sort of Z-A'}
         </button>
+
         <div className="Dogs">
-          {dogEntry.map((breed, i) => (
+          {this.state.breeds.map((breed, i) => (
             <li className="dogEntry" key={i}>
               {breed}
             </li>
           ))}
         </div>
       </div>
-    )
   }
 
-  btnSort(event) {
-    
-    console.log('click')
-    
-  }
+ 
 }
 
 export default App
