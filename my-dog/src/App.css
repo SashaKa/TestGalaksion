@@ -20,16 +20,13 @@
 
 .App-intro {
   font-size: large;
-  
 }
 .Entry-wrap {
   display: flex;
   justify-content: space-around;
   margin: 3% auto;
 }
-/* .Dogs-List{
-  margin: 3% 10%;
-} */
+
 .dogEntry {
   text-align: left;
   list-style: none;
@@ -38,24 +35,46 @@
 }
 .Controls-wrap {
   display: flex;
-  justify-content: space-around;
-  margin: 3% auto;
-
+  justify-content: space-between;
+  margin: 3% 7%;
 }
-.Sort-Btn, .Search-Input {
-      background-color: #ffffff;
-    padding: 15px 22px;
-   
-    font-size: 20px;
-    border-radius: 10px;
-    border-color: #4eadad;
+.Sort-Btn,
+.Search-Input {
+  background-color: #ffffff;
+  padding: 15px 22px;
+
+  font-size: 20px;
+  border-radius: 10px;
+  border-color: #4eadad;
 }
 .Sort-Btn:hover {
-   border-color: #ffffff;
-    background-color: #4eadad;
+  border-color: #ffffff;
+  background-color: #4eadad;
 }
 .Search-Input {
-  
+}
+.Dog-List {
+  flex: 0 0 100px;
+}
+.Dog-Image-wrap {
+  flex: 0 0 50%;
+  padding: 20px;
+  height: 500px;
+  max-height: 500px;
+  position: relative;
+}
+.Dog-Image {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: calc(100% - 20px);
+  height: auto;
+  width: auto;
+  max-height: calc(500px - 40px);
+  margin: auto;
+  display: block;
 }
 @keyframes App-logo-spin {
   from {

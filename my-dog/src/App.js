@@ -7,7 +7,7 @@ class App extends Component {
     super(props)
     this.state = {
       breeds: [],
-      filtered: [],
+      filteredBreed: [],
       imgUrl: '#'
     }
     this.btnSort = {
@@ -22,22 +22,22 @@ class App extends Component {
     this.setState(prevState => ({
       isToggleOn: !prevState.isToggleOn
     }))
-    this.state.filtered.reverse()
+    this.state.filteredBreed.reverse()
   }
 
   handleInput = event => {
     const value = event.target.value
     const pattern = new RegExp(`^${value}`)
-    const filtered = this.state.breeds.filter(el => pattern.test(el))
+    const filteredBreed = this.state.breeds.filter(el => pattern.test(el))
     this.setState({
-      filtered
+      filteredBreed
     })
   }
 
   handleListClick = index => {
-    const breedName = this.state.filtered[index]
+    const breedName = this.state.filteredBreed[index]
     fetch(`https://dog.ceo/api/breed/${breedName}/images/random`)
-      .then(r => r.json())
+      .then(response => response.json())
       .then(({ message }) => {
         this.setState({ imageUrl: message })
         console.log(message)
@@ -50,14 +50,13 @@ class App extends Component {
       .then(({ message }) =>
         this.setState({
           breeds: message,
-          filtered: message
+          filteredBreed: message
         })
       )
   }
 
   render() {
-    return (
-      <div className="App">
+    return <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Hello! Choose your Dog</h1>
@@ -66,15 +65,11 @@ class App extends Component {
           <button onClick={this.handleButtonClick} className="Sort-Btn">
             {this.state.isToggleOn ? 'Sort of A-Z' : 'Sort of Z-A'}
           </button>
-          <input
-            className="Search-Input"
-            type="text"
-            onInput={this.handleInput}
-          />
+          <input className="Search-Input" type="text" onInput={this.handleInput} />
         </div>
         <div className="Entry-wrap">
           <div className="Dogs-List">
-            {this.state.filtered.map((breed, i) => (
+            {this.state.filteredBreed.map((breed, i) => (
               <li
                 onClick={() => this.handleListClick(i)}
                 className="dogEntry"
@@ -84,12 +79,11 @@ class App extends Component {
               </li>
             ))}
           </div>
-          <div className="Dog-Image">
-            <img alt="dog" src={this.state.imageUrl} />
+          <div className="Dog-Image-wrap">
+            <img className="Dog-Image" alt="dog" src={this.state.imageUrl} />
           </div>
         </div>
       </div>
-    )
   }
 }
 
