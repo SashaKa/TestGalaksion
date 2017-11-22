@@ -6,6 +6,7 @@ import SearchInput from '../components/searchInput'
 import MoreButton from '../components/moreButton'
 import ListBreeds from './listBreeds'
 
+
 class App extends Component {
   static filter(breeds, search) {
     const reg = new RegExp(`^${search}`)
