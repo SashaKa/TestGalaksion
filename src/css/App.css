@@ -51,12 +51,9 @@
   background-color: #4eadad;
 }
 .moreButton {
- order: 2;
-
+  order: 2;
 }
 
-.Search-Input {
-}
 .ListBreeds {
   flex: 0 0 100px;
 }
@@ -66,13 +63,11 @@
   height: 500px;
   max-height: 500px;
   position: relative;
-      border-radius: 10px;
-    box-shadow: 2px 4px 13px 0px;
-    background: antiquewhite;
-        margin-top: 26px;
+  border-radius: 10px;
+  box-shadow: 2px 4px 13px 0px;
+  background: antiquewhite;
+  margin-top: 26px;
 }
-
-
 
 .Dog-Image {
   position: absolute;
